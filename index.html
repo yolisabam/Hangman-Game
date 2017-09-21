@@ -9,7 +9,7 @@
 	<h1> Hangman Game!</h1>
 	<h3> Press any Key to Play!</h3>
 
-	<div>
+	<div class="currentWord">
 	<h4>Current Word</h4>	
     <p id="underscores"> </p>
   	</div>
@@ -24,48 +24,79 @@
 
 		// Wins + Guesses Left that increase or decrease incrementally//
 		var wins= 0;
-		var guessesLeft = 10;
-		// Array with list of Mononymous Celebs //
+		var guessesRemaining = 10;
 		var celebList = ["Prince", "Sade", "Bono", "Cher", "Beyonce", "Sting", "Rihanna"];
+		// Array with list of Mononymous Celebs //
 		
-		// Variable to hold the Index of the current word //
-		var celebIndex = 0;
 		
-		 //Assigns that random index to the compyter choice //
-		var compChoice = celebList[celebIndex];
+		//Assigns that random index to the compyter choice //
+		// var compWord = celebList[randomindex];
 		// Counts the number of letters in that random choice so we can generate dashes//
-		var wordLength = compChoice.length;
+		// var wordLength = compWord.length;
 		//Creating an empty array to push incorrect letters to//
 		var lettersGuessed = [];
 
 		var underScore = "";
 
-		var celebIndex = 0;
-
-		
-
-		// =========================
 		// FUNCTIONS
 
-		// Converts chosen word into underscores// 
+		function compWordPicker (array) {
+			console.log(array);
+			var randomIndex = Math.floor(Math.random() * array.length); 
+			console.log(randomIndex);
+			return array[randomIndex];
+		}
 
-		function hiddenWord(word) {
-			for(var i=0; i < wordLength; i++) {
-					underScore =  underScore + "_ ";
-					document.querySelector("#underscores").innerHTML = underScore;	
-				}
+
+		function hideWord(word) {
+			for(var i=0; i < word.length; i++) {
+				underScore =  underScore + "_ ";
+				
 			}
-
+			console.log(underScore);
+			return underScore;
+		} 
 		
-		// SHOULD keep game running as long at celebIndex is less than array length
-		// function currentWord () {
-		// 	if (celebIndex <= celebList.length -1) {
-		// 			document.querySelector("#underscores").innerHTML = underScore;
-		// 		}
-		// 	else {
-		// 		document.querySelector("#underscores").innerHTML = "Game Over!"
-		// 	}
 
+		function renderHiddenWord(word){
+			document.querySelector("#underscores").innerHTML = word;
+		}
+
+		function startGame (){
+			var compWord = compWordPicker(celebList); //at this point my assumption is that we have a celeb
+			var hiddenWord = hideWord(compWord);
+			renderHiddenWord(hiddenWord);
+			var wordSplit = compWord.split('');
+			console.log(wordSplit);
+			
+
+
+		}
+
+
+		function letterChecker(wordSplit, userSelection){
+
+
+		}
+
+		startGame();
+
+		///how to I track the user letter and compare that to the hidden word?
+		//hint - spit the word in to an array. when the user slects a letter check to see what index that letter is at. That should reprsent the same index of the hidden word '_ _ _ _'
+
+	 // hideWord();
+
+
+		// document.onkeyup = function(event) {
+		// 	var userLetter = event.key;
+		// 	for (var i=0; i < wordSplit.length; i++) {
+		// 		if userletter === wordSplit[i]	
+		// 	}	
+			
+		// }
+
+	 // Set a reset function outside the onkeyup that is called when the win or lose situation happens// 
+	 
 
 
 
