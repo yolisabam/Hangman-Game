@@ -1,0 +1,30 @@
+body {
+	background-color: black;
+}
+
+.jumbotron {
+	background-image: url(https://us.123rf.com/450wm/rondale/rondale1510/rondale151000204/46812215-gold-sparkle-glitter-background.jpg?ver=6);
+}
+
+.jumbotron h1 {
+	font-family: 'Barrio';font-size: 60px;
+	color: white;
+}
+
+.jumbotron h3 {
+	 font-family: 'Barrio';font-size: 45px;
+	 color: red;
+}
+
+.col-md-3 h3 {
+	font-family: 'Barrio';font-size: 22px;
+	 color: white;
+
+}
+
+h2 {
+	color: white;
+	font-family: 'Barrio';font-size: 40px;
+
+}
+
